@@ -1,0 +1,82 @@
+
+
+<app-sidebar></app-sidebar>
+<h1 class="text-white">Alumno</h1>
+<hr>
+
+
+<div class="row text-right">
+  <div class="col">
+    <button class="btn btn-danger"
+            routerLink="/alumnos">
+      <i class="fa fa-arrow-left"></i>
+      Regresar
+    </button>
+  </div>
+</div>
+
+<hr>
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+
+    <form (ngSubmit)="guardar( f )"
+    #f="ngForm"> 
+
+      <div class="form-group">
+        <label class="text-white">Firebase ID</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Firebase ID"
+               [(ngModel)]="alumno.id"
+               name="id"
+               disabled="disabled">
+        
+      </div>
+
+
+      <div class="form-group">
+          <label class="text-white">Nombre</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Nombre del Alumno"
+                 [(ngModel)]="alumno.nombre"
+                 name="nombre"
+                 required>
+      </div>
+
+      <div class="form-group">
+          <label class="text-white">Apellido Paterno:</label>
+          <input type="text"
+                 class="form-control"
+                 [(ngModel)]="alumno.apellido_p"
+                 name="apellido_p"
+                 placeholder="Ápellido Paterno">
+      </div>
+
+      <div class="form-group">
+        <label class="text-white">Apellido Materno:</label>
+        <input type="text"
+               class="form-control"
+               name="apellido_m"
+               [(ngModel)]="alumno.apellido_m"
+               placeholder="Ápellido Materno">
+    </div>
+
+
+      <hr>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary w-25">
+          <i class="fa fa-save"></i>
+          Guardar
+        </button>
+      </div>
+
+
+    </form>
+
+
+  </div>
+</div>
+
+

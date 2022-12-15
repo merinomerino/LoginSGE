@@ -1,0 +1,68 @@
+<app-sidebar></app-sidebar>
+<h1 class="text-white">Listado de Alumnos</h1>
+<hr>
+
+
+<div class="row">
+  <div class="col text-right">
+    <button routerLink="/alumno/nuevo"
+            class="btn btn-primary">
+      <i class="fa fa-plus"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+
+
+<table *ngIf="!cargando && alumnos.length > 0"
+       class="table table-dark mt-3 animated fadeIn faster animated fadeIn faster">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">apellido_p</th>
+      <th scope="col">apellido_m</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let alumno of alumnos; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ alumno.nombre }}</td>
+      <td>{{ alumno.apellido_p }}</td>
+      <td>{{ alumno.apellido_m }}</td>
+      <td>
+
+        <button class="btn btn-info mr-1"
+            [routerLink]="['/alumno', alumno.id ]">
+          <i class="fa fa-pen"></i>
+        </button>
+
+        <button class="btn btn-danger"
+            (click)="borrarAlumno( alumno, i ) ">
+          <i class="fa fa-trash"></i>
+        </button>
+
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!cargando && alumnos.length === 0"
+     class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+      <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="cargando" 
+     class="alert alert-info text-center mt-3 animated fadeIn faster">
+  <h4 class="alert-heading">Cargando</h4>
+  <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0">
+    Espere por favor
+  </p>
+</div>

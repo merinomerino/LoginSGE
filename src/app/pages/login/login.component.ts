@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         if(this.recordarme){
           localStorage.setItem('email', this.usuario.email)
         }
-        this.router.navigateByUrl('/home')
+        this.router.navigateByUrl('/alumnos')
       },(err)=>{
         console.log(err.error.error.message)
         Swal.fire({

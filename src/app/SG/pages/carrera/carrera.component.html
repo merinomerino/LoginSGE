@@ -1,0 +1,80 @@
+<app-sidebar></app-sidebar>
+<h1 class="text-white">Carrera</h1>
+<hr>
+
+
+<div class="row text-right">
+  <div class="col">
+    <button class="btn btn-danger"
+            routerLink="/carreras">
+      <i class="fa fa-arrow-left"></i>
+      Regresar
+    </button>
+  </div>
+</div>
+
+<hr>
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+
+    <form (ngSubmit)="guardar( f )"
+    #f="ngForm"> 
+
+      <div class="form-group">
+        <label class="text-white">Firebase ID</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Firebase ID"
+               [(ngModel)]="carrera.id"
+               name="id"
+               disabled="disabled">
+        
+      </div>
+
+
+      <div class="form-group">
+          <label class="text-white">Nombre_Carrera:</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Nombre de Carrera"
+                 [(ngModel)]="carrera.nombre_carrera"
+                 name="nombre_carrera"
+                 required>
+      </div>
+
+      <div class="form-group">
+          <label class="text-white">Nombre_Corto:</label>
+          <input type="text"
+                 class="form-control"
+                 [(ngModel)]="carrera.nombre_corto"
+                 name="nombre_corto"
+                 placeholder="Nombre Corto">
+      </div>
+
+      <div class="form-group">
+        <label class="text-white">Nombre_Abreviado:</label>
+        <input type="text"
+               class="form-control"
+               name="nombre_abreviado"
+               [(ngModel)]="carrera.nombre_abreviado"
+               placeholder="Nombre Abreviado">
+    </div>
+
+
+      <hr>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary w-25">
+          <i class="fa fa-save"></i>
+          Guardar
+        </button>
+      </div>
+
+
+    </form>
+
+
+  </div>
+</div>
+
+

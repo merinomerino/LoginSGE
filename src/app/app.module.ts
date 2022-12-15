@@ -10,19 +10,29 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { PaisModule } from './SG/SG.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PaisModule,
+    SharedModule
+    
+  ],
+  exports:[
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
